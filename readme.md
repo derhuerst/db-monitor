@@ -17,9 +17,44 @@ npm install db-monitor
 
 ## Usage
 
+```js
+const monitor = require('db-monitor')
+
+const stations = [8011167] // array of station ids
+const interval = 5 * 1000 // every 10 seconds
+
+const departures = monitor(stations, interval)
+departures.on('error', console.error)
+departures.on('data', console.log)
+
+setTimeout(() => {
+	departures.stop() // stop querying
+}, interval * 3)
 ```
-todo
+
+The [stream](https://nodejs.org/api/stream.html#stream_readable_streams) will emit data like this:
+
+```js
+{
+	when: '2017-05-19T20:18:00.000Z',
+	delay: 480,
+	station: 730988,
+	line: null,
+	trip: 1018516,
+	direction: 'S+U Zoologischer Garten'
+}
+{
+	when: '2017-05-19T20:15:00.000Z',
+	delay: 120,
+	station: 730985,
+	line: null,
+	trip: 1264733,
+	direction: 'S+U Jungfernheide'
+}
 ```
+
+*Note:* A stream created by calling `monitor(…)` does not stop calling the API if you `unpipe` it. You need to manually call `departures.stop()`.
+
 
 ## Contributing
 
