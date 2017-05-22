@@ -20,8 +20,8 @@ npm install db-monitor
 ```js
 const monitor = require('db-monitor')
 
-const stations = [8011167] // array of station ids
-const interval = 5 * 1000 // every 10 seconds
+const stations = ['8002553'] // array of station ids
+const interval = 10 * 1000 // every 10 seconds
 
 const departures = monitor(stations, interval)
 departures.on('error', console.error)
@@ -36,20 +36,45 @@ The [stream](https://nodejs.org/api/stream.html#stream_readable_streams) will em
 
 ```js
 {
-	when: '2017-05-19T20:18:00.000Z',
+	when: '2017-05-22T14:47:00+02:00',
 	delay: 480,
-	station: 730988,
-	line: null,
-	trip: 1018516,
-	direction: 'S+U Zoologischer Garten'
+	station: {
+		type: 'station',
+		id: '692757'
+		name: 'Bahnhof Altona, Hamburg',
+		coordinates: {latitude: 53.551663, longitude: 9.934231},
+		products: // …
+	},
+	line: {
+		type: 'line',
+		id: 'bus-283',
+		name: 'Bus 283',
+		mode: 'bus',
+		product: 'bus'
+	},
+	trip: 329143,
+	direction: 'Langenfelder Damm, Hamburg'
 }
+// …
 {
-	when: '2017-05-19T20:15:00.000Z',
-	delay: 120,
-	station: 730985,
-	line: null,
-	trip: 1264733,
-	direction: 'S+U Jungfernheide'
+	when: '2017-05-22T15:02:00+02:00',
+	delay: 0,
+	station: {
+		type: 'station',
+		id: '8098553',
+		name: 'Hamburg-Altona(S)',
+		coordinates: {latitude: 53.551267, longitude: 9.934698},
+		products: // …
+	},
+	line: {
+		type: 'line',
+		id: 's-1',
+		name: 'S 1',
+		mode: 'train',
+		product: 'suburban'
+	},
+	trip: 247000,
+	direction: 'Wedel(Holst)'
 }
 ```
 
