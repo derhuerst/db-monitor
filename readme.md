@@ -1,5 +1,7 @@
 # db-monitor 🔭
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/derhuerst/db-monitor.svg)](https://greenkeeper.io/)
+
 **Fetch departures at DB stations.** (You may get blacklisted.)
 
 [![npm version](https://img.shields.io/npm/v/db-monitor.svg)](https://www.npmjs.com/package/db-monitor)
