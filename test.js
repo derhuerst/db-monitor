@@ -8,11 +8,15 @@ const monitor = require('.')
 
 
 
-const stations = [8011167, 8002553] // alex & zoo
+const stations = ['8011167', '8002553'] // alex & zoo
 const interval = 10 * 1000 // 10s
 
 const mockedDeparture = (id, opt) => () => ({
-	station: {id},
+	station: {
+		type: 'station',
+		id,
+		name: id.toUpperCase() + ' station'
+	},
 	when: new Date(opt.when + 5 * 1000),
 	delay: 2 * 1000,
 	direction: 'foo',

@@ -32,7 +32,7 @@ setTimeout(() => {
 }, interval * 3)
 ```
 
-The [stream](https://nodejs.org/api/stream.html#stream_readable_streams) will emit data like this:
+The [stream](https://nodejs.org/api/stream.html#stream_readable_streams) will emit [*Friendly Public Transport Format* `1.0.1`](https://github.com/public-transport/friendly-public-transport-format/blob/1.0.1/spec/readme.md) departures that look like this:
 
 ```js
 {
@@ -42,7 +42,11 @@ The [stream](https://nodejs.org/api/stream.html#stream_readable_streams) will em
 		type: 'station',
 		id: '692757'
 		name: 'Bahnhof Altona, Hamburg',
-		coordinates: {latitude: 53.551663, longitude: 9.934231},
+		location: {
+			type: 'location',
+			latitude: 53.551663,
+			longitude: 9.934231
+		},
 		products: // …
 	},
 	line: {
@@ -63,7 +67,11 @@ The [stream](https://nodejs.org/api/stream.html#stream_readable_streams) will em
 		type: 'station',
 		id: '8098553',
 		name: 'Hamburg-Altona(S)',
-		coordinates: {latitude: 53.551267, longitude: 9.934698},
+		location: {
+			type: 'location',
+			latitude: 53.551267,
+			longitude: 9.934698
+		},
 		products: // …
 	},
 	line: {
