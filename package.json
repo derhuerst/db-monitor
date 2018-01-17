@@ -1,15 +1,23 @@
 {
-	"name":         "db-monitor",
-	"description":  "Fetch departures at DB stations.",
-	"version":      "0.1.0",
-	"main":         "index.js",
-	"files":        ["index.js"],
-	"keywords":     ["db", "deutsche bahn", "public transport"],
-	"author":       "Jannis R <mail@jannisr.de>",
-	"homepage":     "https://github.com/derhuerst/db-monitor",
-	"repository":   "derhuerst/db-monitor",
-	"license":      "ISC",
-	"engines":      {"node": ">=6"},
+	"name": "db-monitor",
+	"description": "Fetch departures at DB stations.",
+	"version": "0.1.0",
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"db",
+		"deutsche bahn",
+		"public transport"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/db-monitor",
+	"repository": "derhuerst/db-monitor",
+	"license": "ISC",
+	"engines": {
+		"node": ">=6"
+	},
 	"dependencies": {
 		"db-hafas": "^1.0.0"
 	},
@@ -21,6 +29,6 @@
 	},
 	"scripts": {
 		"test": "tape test.js | tap-min",
-		"prepublish": "npm test"
+		"prepublishOnly": "npm test"
 	}
 }
