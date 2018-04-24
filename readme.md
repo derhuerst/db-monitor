@@ -1,11 +1,16 @@
 # db-monitor 🔭
 
+**Deprecated. Use [`hafas-monitor-departures`](https://www.npmjs.com/package/hafas-monitor-departures) with [`db-hafas`](https://www.npmjs.com/package/db-hafas).**
+
+---
+
 **Fetch departures at DB stations.** (You may get blacklisted.)
 
 [![npm version](https://img.shields.io/npm/v/db-monitor.svg)](https://www.npmjs.com/package/db-monitor)
 [![build status](https://img.shields.io/travis/derhuerst/db-monitor.svg)](https://travis-ci.org/derhuerst/db-monitor)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/db-monitor.svg)
 [![gitter channel](https://badges.gitter.im/derhuerst/vbb-rest.svg)](https://gitter.im/derhuerst/vbb-rest)
+[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
 
 ## Installing
@@ -32,59 +37,7 @@ setTimeout(() => {
 }, interval * 3)
 ```
 
-The [stream](https://nodejs.org/api/stream.html#stream_readable_streams) will emit [*Friendly Public Transport Format* `1.0.1`](https://github.com/public-transport/friendly-public-transport-format/blob/1.0.1/spec/readme.md) departures that look like this:
-
-```js
-{
-	when: '2017-05-22T14:47:00+02:00',
-	delay: 480,
-	station: {
-		type: 'station',
-		id: '692757'
-		name: 'Bahnhof Altona, Hamburg',
-		location: {
-			type: 'location',
-			latitude: 53.551663,
-			longitude: 9.934231
-		},
-		products: // …
-	},
-	line: {
-		type: 'line',
-		id: 'bus-283',
-		name: 'Bus 283',
-		mode: 'bus',
-		product: 'bus'
-	},
-	trip: 329143,
-	direction: 'Langenfelder Damm, Hamburg'
-}
-// …
-{
-	when: '2017-05-22T15:02:00+02:00',
-	delay: 0,
-	station: {
-		type: 'station',
-		id: '8098553',
-		name: 'Hamburg-Altona(S)',
-		location: {
-			type: 'location',
-			latitude: 53.551267,
-			longitude: 9.934698
-		},
-		products: // …
-	},
-	line: {
-		type: 'line',
-		id: 's-1',
-		name: 'S 1',
-		mode: 'train',
-		product: 'suburban'
-	},
-	trip: 247000,
-	direction: 'Wedel(Holst)'
-}
-```
+The [stream](https://nodejs.org/api/stream.html#stream_readable_streams) will emit [*Friendly Public Transport Format* `1.0.1`](https://github.com/public-transport/friendly-public-transport-format/blob/1.0.1/spec/readme.md) departures.
 
 *Note:* A stream created by calling `monitor(…)` does not stop calling the API if you `unpipe` it. You need to manually call `departures.stop()`.
 
